@@ -1,0 +1,4 @@
+[build]
+  functions = 'src/functions'
+[context.dev.environment]
+  JWT_SECRET = "example-jwt"
