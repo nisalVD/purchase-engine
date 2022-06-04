@@ -38,6 +38,10 @@ to get a jwt with bangaroo sydney to test out the $100 discount
 ```
   POST /.netlify/functions/purchase
 ```
+expected headers
+```
+  Authorization: Bearer <token>
+```
 expected body
 ```
 {
@@ -45,11 +49,6 @@ expected body
   "description": "this is a purchase",
   "productSKU": "foo"
 }
-
-```
-headers
-```
-  Authorization: Bearer <token>
 
 ```
 
