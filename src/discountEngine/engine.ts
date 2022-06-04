@@ -3,6 +3,8 @@ import {
   withSweetDigsDiscount,
   withBigSpenderDiscountRule,
 } from "./rules";
+import { PurchaseRule, Purchase } from "./types";
+import { roundPriceUpTwoDecimalPlaces } from "./formatter";
 
 export const createPurchaseEngine = (purchaseRules: PurchaseRule[]) => {
   return (initialPurchase: Purchase) => {
@@ -16,7 +18,8 @@ export const createPurchaseEngine = (purchaseRules: PurchaseRule[]) => {
 const defaultPurchaseEngine = createPurchaseEngine([
   withBigSpenderDiscountRule,
   withSweetDigsDiscount,
-  withFooBarSku
+  withFooBarSku,
+  roundPriceUpTwoDecimalPlaces
 ]);
 
 export default defaultPurchaseEngine;

@@ -1,4 +1,4 @@
-import { PurchaseRule } from "./types";
+import { PurchaseRule, Purchase } from "./types";
 
 export const withBigSpenderDiscountRule: PurchaseRule = (purchase: Purchase) =>
   purchase.price > 10000

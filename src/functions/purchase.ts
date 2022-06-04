@@ -21,8 +21,6 @@ const handler: Handler = async (event, context) => {
       const authHeader = event.headers["authorization"];
 
       let authToken = authHeader?.split(" ")[1];
-      console.log("authToken", authToken);
-      console.log("authHeader", authHeader);
       if (!authHeader || !authToken) {
         return {
           statusCode: 403,
@@ -59,7 +57,6 @@ const handler: Handler = async (event, context) => {
       ...purchase.data,
       customer,
     };
-    console.log("purchaseToParse", purchaseToParse);
     const discountedPurchase = discountEngine(purchaseToParse);
     return {
       statusCode: 200,
