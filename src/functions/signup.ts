@@ -21,6 +21,9 @@ const handler: Handler = async (event, context) => {
         return {
           statusCode: 400,
           body: JSON.stringify(parsed.error),
+          headers: {
+            "Content-Type": "application/json",
+          },
         };
       }
 
@@ -48,17 +51,26 @@ const handler: Handler = async (event, context) => {
       return {
         statusCode: 200,
         body: JSON.stringify(response),
+        headers: {
+          "Content-Type": "application/json",
+        },
       };
     } catch (err) {
       if (err instanceof Error) {
         return {
           statusCode: 500,
           body: JSON.stringify({ error: err.message }),
+          headers: {
+            "Content-Type": "application/json",
+          },
         };
       }
       return {
         statusCode: 500,
-        error: err,
+        body: JSON.stringify(err),
+        headers: {
+          "Content-Type": "application/json",
+        },
       };
     }
   }
